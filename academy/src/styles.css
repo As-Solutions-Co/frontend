@@ -2,6 +2,14 @@
 
 @layer base {
   hr {
-    @apply w-full h-[1px] bg-gradient-to-r from-transparent via-stone-300 to-transparent border-0;
+    @apply w-full h-[1px] bg-gradient-to-r from-transparent to-transparent border-0;
+  }
+
+  input {
+    @apply border-1 border-stone-500 text-black w-full h-8 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-lg p-3 hover:scale-105 transition-all duration-300 -mt-1 placeholder:text-stone-500;
+  }
+
+  label {
+    @apply text-sm text-black font-extralight caret-transparent;
   }
 }

@@ -1,4 +1,5 @@
-<div class="flex flex-row justify-around items-center w-full h-20 bg-stone-50 drop-shadow-2xl drop-shadow-white">
+<div
+    class="flex flex-row justify-around items-center w-full h-20 bg-stone-50 drop-shadow-2xl drop-shadow-white caret-transparent">
     <div class="flex flex-row justify-center items-center gap-2">
         <app-box>
             <svg class="h-7 w-7 sm:h-9 sm:w-9 drop-shadow-lg text-white  transition-all duration-500">
@@ -8,21 +9,23 @@
         <h1 class="font-bold font-sans text-xl sm:text-3xl transition-all duration-500">Academy</h1>
     </div>
     <div class="hidden lg:flex flex-row gap-7 text-lg font-extralight">
-        <a href="#home">Home</a>
-        <a href="#tools">Tools</a>
-        <a href="#about">About us</a>
-        <a href="#contact">Contact</a>
+        <a [routerLink]="['/']" fragment="home">Home</a>
+        <a [routerLink]="['/']" fragment="tools">Tools</a>
+        <a [routerLink]="['/']" fragment="about">About us</a>
+        <a [routerLink]="['/']" fragment="contact">Contact</a>
     </div>
     <div class="flex gap-4 justify-center items-center">
         <div class="flex flex-row sm:gap-4">
-            <a href="/login">
+            <a routerLink="/login">
                 <app-solidbutton>
                     <span class="text-white text-sm sm:text-lg font-medium sm:font-normal">Login</span>
                 </app-solidbutton>
             </a>
-            <app-softbutton>
-                <span class="text-black text-lg font-normal">Register</span>
-            </app-softbutton>
+            <a routerLink="/register">
+                <app-softbutton>
+                    <span class="text-black text-lg font-normal">Register</span>
+                </app-softbutton>
+            </a>
         </div>
         <div class="lg:hidden">
             <app-menutoggle></app-menutoggle>
@@ -30,5 +33,5 @@
     </div>
 </div>
 <div class="flex justify-center items-center">
-    <hr>
+    <hr class="via-stone-700">
 </div>
