@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+@layer base {
+  hr {
+    @apply w-full h-[1px] bg-gradient-to-r from-transparent via-stone-300 to-transparent border-0;
+  }
+}

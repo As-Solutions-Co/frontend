@@ -1,0 +1,58 @@
+<div class="w-full flex flex-col bg-stone-800 p-8 gap-8 ">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-around gap-6">
+        <div id="information" class="flex flex-col gap-5 sm:w-lg">
+            <div class="flex flex-row gap-2 justify-start items-center">
+                <app-box>
+                    <svg class="h-7 w-7 sm:h-9 sm:w-9 drop-shadow-lg text-white  transition-all duration-500">
+                        <use href="assets/icons/academy.svg"></use>
+                    </svg>
+                </app-box>
+                <h1 class="text-xl text-white font-medium">Academy</h1>
+            </div>
+            <div class="font-extralight text-white text-[16px] text-wrap sm:w-auto">
+                <p>{{ text }}</p>
+            </div>
+            <div id="data" class="flex flex-col justify-start gap-3">
+                <div class="flex flex-row items-center gap-3">
+                    <svg class="h-6 w-6 sm:h-7 sm:w-7">
+                        <use href="assets/icons/gmail.svg"></use>
+                    </svg>
+                    <p class="text-sm text-white sm:text-[16px]">{{ email }}</p>
+                </div>
+                <div class="flex flex-row items-center gap-3 text-white px-1">
+                    <svg class="h-4 w-4 sm:h-5 sm:w-5">
+                        <use href="assets/icons/phone.svg"></use>
+                    </svg>
+                    <p class="text-sm sm:text-[16px]">{{ phone }}</p>
+                </div>
+                <div class="flex flex-row items-center gap-3 px-1">
+                    <svg class="h-4 w-4 sm:h-6 sm:w-6">
+                        <use href="assets/icons/loc.svg"></use>
+                    </svg>
+                    <p class="text-sm text-white sm:text-[16px]">{{ loc }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-3 text-white justify-start items-start">
+            <h1 id="quickLinks" class="text-lg">Quick Links</h1>
+            <div class="flex flex-col font-extralight">
+                <a class="hover:scale-105 transition-all duration-200" href="#home">Home</a>
+                <a class="hover:scale-105 transition-all duration-200" href="#features">Features</a>
+                <a class="hover:scale-105 transition-all duration-200" href="#about">About us</a>
+                <a class="hover:scale-105 transition-all duration-200" href="#contact">Contact</a>
+            </div>
+        </div>
+        <div id="legal" class="flex flex-col gap-3 text-white font-extralight">
+            <a class="hover:scale-105 transition-all duration-200" href="">Privacy Policy</a>
+            <a class="hover:scale-105 transition-all duration-200" href="">Terms & Conditions</a>
+            <a class="hover:scale-105 transition-all duration-200" href="">Cookie Policy</a>
+            <a class="hover:scale-105 transition-all duration-200" href="">Support</a>
+        </div>
+    </div>
+    <div class="flex justify-center items-center">
+        <hr>
+    </div>
+    <div class="flex justify-center items-center text-white font-extralight text-sm sm:text-md">
+        <p>© 2025 As Solutions Co. All rights reserved.</p>
+    </div>
+</div>
