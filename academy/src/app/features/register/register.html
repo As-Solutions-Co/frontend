@@ -1,45 +1,46 @@
 <section>
     <app-header></app-header>
     <main class="relative h-screen flex flex-col justify-center items-center">
-        <div class="relative flex flex-col w-full h-screen justify-center items-center">
-            <img src="assets/images/register.png" class="w-full h-full object-cover opacity-100">
+        <div class="relative w-full h-full">
+            <img src="assets/images/register.png" class="w-full h-screen object-cover opacity-100">
             <div class="absolute inset-0 bg-gradient-to-br from-cyan-600 via-green-300 to-emerald-400 opacity-60"></div>
         </div>
-        <div class="absolute top-7 sm:top-36 text-center justify-center items-center">
+        <div class="absolute top-7 sm:top-12  text-center">
             <h1 class="text-5xl sm:text-6xl font-extrabold text-stone-50">Academy</h1>
         </div>
-        <div class="absolute top-10 h-screen inset-0 flex flex-col justify-center items-center gap-4">
-            <app-card class="w-[300px] h-auto sm:w-[400px] sm:h-auto transition-all duration-500">
-                <div class="flex flex-col justify-center items-center gap-3">
-                    <h1 class="text-3xl sm:text-4xl font-bold text-emerald-500 mb-5 caret-transparent">Register</h1>
-                    <h2 class="text-lg text-stone-600 font-light caret-transparent">User data</h2>
-                    <div class="flex flex-col justify-center items-center gap-4">
-                        <div class="flex flex-col gap-2">
+        <div class="absolute top-20 sm:top-36 h-auto w-[330px] sm:w-auto">
+            <app-card class="h-full w-full p-10">
+                <div class="flex flex-col justify-center items-center gap-2">
+                    <h1
+                        class="text-3xl sm:text-4xl font-bold bg-linear-100 from-cyan-500 to-emerald-400 bg-clip-text text-transparent mt-3 sm:m-3">
+                        Register</h1>
+                    <div class="flex flex-col sm:flex-row justify-center items-start gap-6 mt-5">
+                        <div class="flex flex-col">
+                            <h2 class="text-left">User data</h2>
                             <label for="user">Username</label>
-                            <input id="user" type="text" [placeholder]="'Your user'" [ngClass]="username" required>
-                        </div>
-                        <div class="flex flex-col gap-2">
+                            <input id="user" type="text" [placeholder]="'Your username'" [ngClass]="username" required>
                             <label for="pass">Password</label>
                             <input id="pass" type="password" [placeholder]="'Your password'" [ngClass]="password"
                                 required>
+                            <input id="cpass" type="password" [placeholder]="'Confirm your password'"
+                                [ngClass]="cPassword" required>
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <input type="password" [placeholder]="'Confirm password'" [ngClass]="cPassword" required>
-                        </div>
-                    </div>
-                    <h2 class="mt-5 text-lg text-stone-600 font-light caret-transparent">Institutional Data</h2>
-                    <div class="flex flex-col justify-center items-center gap-4">
-                        <div class="flex flex-col gap-2">
-                            <label for="user">Dane code</label>
-                            <input id="user" type="text" [placeholder]="'Your user'" [ngClass]="username" required>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="pass">Main color</label>
-                            <input id="pass" type="password" [placeholder]="'Your password'" [ngClass]="color" required>
+                        <hr id="space">
+                        <div class="flex flex-col">
+                            <h2 class="text-left">Institucional data</h2>
+                            <label for="code">Dane code</label>
+                            <input id="code" type="number" [placeholder]="'Your Dane code'" [ngClass]="dane_code"
+                                required>
+                            <label for="user">Main color</label>
+                            <input id="user" type="color" [placeholder]="'Your username'" [ngClass]="main_color"
+                                required>
                         </div>
                     </div>
+                    <div class="my-6 h-8 w-28 sm:h-10 sm:w-36">
+                        <app-solidbutton class="text-white text-xl sm:text-[22px]">Register</app-solidbutton>
+                    </div>
+
                 </div>
-                <!-- <app-solidbutton class="text-white">Register</app-solidbutton> -->
             </app-card>
         </div>
     </main>

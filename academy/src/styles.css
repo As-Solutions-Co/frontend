@@ -2,11 +2,27 @@
 
 @layer base {
   hr {
-    @apply w-full h-[1px] bg-gradient-to-r from-transparent to-transparent border-0;
+    @apply bg-gradient-to-r from-transparent to-transparent border-0;
+  }
+
+  h1 {
+    @apply transition-all duration-500;
+  }
+
+  h2 {
+    @apply text-sm sm:text-lg sm:py-2 font-medium text-stone-400 -ml-1 sm:ml-0 mb-2;
+  }
+
+  label {
+    @apply transition-all duration-500 py-2 font-extralight ml-2;
+  }
+
+  hr#space {
+    @apply via-stone-400 w-full h-[1px] sm:w-[1px] sm:h-64 sm:bg-gradient-to-b;
   }
 
   input {
-    @apply border-1 border-stone-500 text-black w-full h-8 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-lg p-3 hover:scale-105 transition-all duration-300 -mt-1 placeholder:text-stone-500;
+    @apply border-[0.5px] border-stone-400 text-black w-56 h-9 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-[15px] p-3 hover:scale-105 transition-all duration-300 -mt-1 placeholder:text-stone-500 my-2 ml-1;
   }
 
   label {
