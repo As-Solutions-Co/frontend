@@ -2,14 +2,14 @@
     <app-header></app-header>
     <main class="relative h-screen flex flex-col justify-center items-center">
         <div class="relative w-full h-full">
-            <img src="assets/images/register.png" class="w-full h-screen object-cover opacity-100">
-            <div class="absolute inset-0 bg-gradient-to-br from-cyan-600 via-green-300 to-emerald-400 opacity-60"></div>
+            <img src="assets/images/register.png" class="w-full h-screen object-cover opacity-80">
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-400 opacity-45"></div>
         </div>
-        <div class="absolute top-7 sm:top-12  text-center">
-            <h1 class="text-5xl sm:text-6xl font-extrabold text-stone-50">Academy</h1>
+        <div class="absolute top-7 text-center">
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-white">Academy</h1>
         </div>
-        <div class="absolute top-20 sm:top-36 h-auto w-[330px] sm:w-auto">
-            <app-card class="h-full w-full p-10">
+        <div class="absolute top-24 h-auto w-[330px] sm:w-auto">
+            <app-card class="h-full w-full p-10 drop-shadow-xl drop-stone-50">
                 <div class="flex flex-col justify-center items-center gap-2">
                     <h1
                         class="text-3xl sm:text-4xl font-bold bg-linear-100 from-cyan-500 to-emerald-400 bg-clip-text text-transparent mt-3 sm:m-3">
@@ -31,8 +31,8 @@
                             <label for="code">Dane code</label>
                             <input id="code" type="number" [placeholder]="'Your Dane code'" [ngClass]="dane_code"
                                 required>
-                            <label for="user">Main color</label>
-                            <input id="user" type="color" [placeholder]="'Your username'" [ngClass]="main_color"
+                            <label for="color">Main color</label>
+                            <input id="color" type="color" [placeholder]="'Your username'" [ngClass]="main_color"
                                 required>
                         </div>
                     </div>

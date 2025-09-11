@@ -1,5 +1,27 @@
-<app-header></app-header>
-<main class="h-screen">
+<section class="min-h-screen flex flex-col">
+    <app-header></app-header>
+    <main class="relative flex flex-col justify-center items-center py-16
+               bg-[url('assets/images/login.png')] bg-cover bg-center bg-no-repeat">
 
-</main>
-<app-footer></app-footer>
+        <app-card class="w-[75%] sm:w-[60%] md:w-[40%] lg:w-[30%]">
+            <div class="flex flex-col justify-center items-center gap-5">
+                <div class="justify-center items-center gap-5">
+                    <h1
+                        class="text-4xl text-center sm:text-4xl font-bold bg-linear-100 from-cyan-500 to-emerald-400 bg-clip-text text-transparent mt-4 sm:m-3">
+                        Login</h1>
+                    <div class="flex flex-col">
+                        <label for="user">Username</label>
+                        <input id="user" type="text" [ngClass]="username" [placeholder]="'Enter your username'">
+                        <label for="pass">Password</label>
+                        <input id="pass" type="password" [ngClass]="password" [placeholder]="'Enter your password'">
+                    </div>
+                </div>
+                <div class="w-[50%] h-10 mb-4 mt-3">
+                    <app-solidbutton class="text-white text-[16px] sm:text-lg">Login</app-solidbutton>
+                </div>
+            </div>
+        </app-card>
+
+    </main>
+    <app-footer></app-footer>
+</section>
