@@ -22,7 +22,7 @@
   }
 
   input {
-    @apply border-[0.5px] border-stone-400 text-black w-56 h-9 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-[15px] p-3 hover:scale-105 transition-all duration-300 -mt-1 placeholder:text-stone-500 my-2 ml-1;
+    @apply border-[0.5px] border-stone-400 text-black w-56 h-9 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-[15px] hover:scale-105 transition-all duration-300  placeholder:text-stone-500 my-2 ml-1;
   }
 
   label {
