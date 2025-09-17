@@ -8,7 +8,7 @@
         <div class="absolute top-7 text-center">
             <h1 class="text-5xl sm:text-6xl font-extrabold text-white">Academy</h1>
         </div>
-        <div class="absolute top-24 h-auto w-[330px] sm:w-auto">
+        <div class="absolute top-24 h-auto w-[330px] sm:w-auto lg:w-[50%]">
             <app-card class="h-full w-full p-10 drop-shadow-xl drop-stone-50">
                 <div class="flex flex-col justify-center items-center gap-2">
                     <h1
@@ -18,28 +18,29 @@
                         <div class="flex flex-col">
                             <h2 class="text-left">User data</h2>
                             <label for="user">Username</label>
-                            <input id="user" type="text" [placeholder]="'Your username'" [ngClass]="username" required>
+                            <input id="user" type="text" [placeholder]="'Your username'" [(ngModel)]="username"
+                                required>
                             <label for="pass">Password</label>
-                            <input id="pass" type="password" [placeholder]="'Your password'" [ngClass]="password"
+                            <input id="pass" type="password" [placeholder]="'Your password'" [(ngModel)]="password"
                                 required>
                             <input id="cpass" type="password" [placeholder]="'Confirm your password'"
-                                [ngClass]="cPassword" required>
+                                [(ngModel)]="cPassword" required>
                         </div>
                         <hr id="space">
                         <div class="flex flex-col">
                             <h2 class="text-left">Institucional data</h2>
                             <label for="code">Dane code</label>
-                            <input id="code" type="number" [placeholder]="'Your Dane code'" [ngClass]="dane_code"
+                            <input id="code" type="number" [placeholder]="'Your Dane code'" [(ngModel)]="dane_code"
                                 required>
                             <label for="color">Main color</label>
-                            <input id="color" type="color" [placeholder]="'Your username'" [ngClass]="main_color"
+                            <input id="color" type="color" [placeholder]="'Your username'" [(ngModel)]="main_color"
                                 required>
                         </div>
                     </div>
                     <div class="my-6 h-8 w-28 sm:h-10 sm:w-36">
-                        <app-solidbutton class="text-white text-xl sm:text-[22px]">Register</app-solidbutton>
+                        <app-solidbutton class="text-white text-xl sm:text-[22px]"
+                            (click)="onRegister()">Register</app-solidbutton>
                     </div>
-
                 </div>
             </app-card>
         </div>

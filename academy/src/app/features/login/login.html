@@ -2,6 +2,7 @@
     <app-header></app-header>
     <main class="relative flex flex-col justify-center items-center py-16
                bg-[url('assets/images/login.png')] bg-cover bg-center bg-no-repeat">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-400 opacity-35"></div>
 
         <app-card class="w-[75%] sm:w-[60%] md:w-[40%] lg:w-[30%]">
             <div class="flex flex-col justify-center items-center gap-5">
@@ -11,13 +12,14 @@
                         Login</h1>
                     <div class="flex flex-col">
                         <label for="user">Username</label>
-                        <input id="user" type="text" [ngClass]="username" [placeholder]="'Enter your username'">
+                        <input id="user" type="text" [(ngModel)]="username" [placeholder]="'Enter your username'">
                         <label for="pass">Password</label>
-                        <input id="pass" type="password" [ngClass]="password" [placeholder]="'Enter your password'">
+                        <input id="pass" type="password" [(ngModel)]="password" [placeholder]="'Enter your password'">
                     </div>
                 </div>
                 <div class="w-[50%] h-10 mb-4 mt-3">
-                    <app-solidbutton class="text-white text-[16px] sm:text-lg">Login</app-solidbutton>
+                    <app-solidbutton (click)="onLogin()"
+                        class="text-white text-[16px] sm:text-lg">Login</app-solidbutton>
                 </div>
             </div>
         </app-card>
