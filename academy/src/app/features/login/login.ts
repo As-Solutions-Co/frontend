@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { Header } from '@shared/components/header/header';
 import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export default class Login {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: Auth) { }
+  constructor(private authService: Auth, private router: Router) { }
 
   onLogin() {
     this.authService.login(
@@ -26,7 +27,8 @@ export default class Login {
     ).subscribe({
       next: (response) => {
         console.log('Login successfully: ', response);
-        alert('Login successfully');
+        alert('Login successfully')
+        this.router.navigate(['/dashboard']);
       },
       error: (response) => {
         console.log('Error al iniciar sesion: ', response);
