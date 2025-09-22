@@ -17,6 +17,6 @@ export class Auth {
   }
 
   login(username: string, password: string) {
-    return this.http.post(`${this.url}/login`, { username, password }, {withCredentials: true})
+    return this.http.post(`${this.url}/login`, { username, password }, { withCredentials: true })
   }
 }

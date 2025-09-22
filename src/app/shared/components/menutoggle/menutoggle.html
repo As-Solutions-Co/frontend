@@ -1,6 +1,31 @@
-<button class="lg:hidden flex flex-col gap-1">
-    <span class="w-5 h-0.5 bg-gray-600"></span>
-    <span class="w-5 h-0.5 bg-gray-600"></span>
-    <span class="w-5 h-0.5 bg-gray-600"></span>
-    <ng-content></ng-content>
+<button (click)="onMenu()"
+    class="lg:hidden flex flex-col justify-around gap-1 hover:cursor-pointer transtion-all duration-500">
+    @if (isMenuOpen) {
+    <svg class="text-stone-800 h-5 w-5 sm:h-6 sm:w-6">
+        <use ngClass="" href="assets/icons/close.svg"></use>
+    </svg>
+    <div class="fixed flex justify-start items-start top-20 left-0 w-full h-40">
+        <div class="flex flex-col justify-center items-start h-full w-full bg-stone-50 rounded-b-3xl px-8 py-5 gap-3">
+            <div class="flex flex-col gap-2 text-[16px] text-start text-stone-900 font-medium">
+                <a [routerLink]="['/']" fragment="home" (click)="onMenu()">Home</a>
+                <a [routerLink]=" ['/']" fragment="about" (click)="onMenu()">About us</a>
+                <a [routerLink]="['/']" fragment="contact" (click)="onMenu()">Contact</a>
+            </div>
+            @if (currentRoute !=='/register') {
+            <div class="h-6 w-20 sm:h-6 sm:w-20">
+                <a routerLink="/register">
+                    <app-softbutton class="rounded-[10px]">
+                        <span class="text-black text-sm font-normal">Register</span>
+                    </app-softbutton>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+    } @else {
+    <svg class="text-stone-800 h-5 w-5 sm:h-6 sm:w-6">
+        <use ngClass="" href="assets/icons/menu.svg"></use>
+    </svg>
+    }
+
 </button>

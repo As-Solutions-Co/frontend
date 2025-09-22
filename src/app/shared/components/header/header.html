@@ -1,5 +1,4 @@
-<div
-    class="flex flex-row justify-around items-center w-full h-20 bg-stone-50 drop-shadow-2xl drop-shadow-white caret-transparent">
+<div class="fixed z-10 flex flex-row justify-around items-center w-full h-20 bg-stone-50 caret-transparent">
     <div class="flex flex-row justify-center items-center gap-2">
         <a routerLink="/">
             <app-box>
@@ -16,18 +15,35 @@
         <a [routerLink]="['/']" fragment="contact">Contact</a>
     </div>
     <div class="flex gap-4 justify-center items-center">
+
         <div class="flex flex-row sm:gap-4">
+            @if (currentRoute === '/register') {
             <a routerLink="/login" class="h-7 w-24 sm:h-9 sm:w-32">
                 <app-solidbutton>
                     <span class="text-white text-sm sm:text-lg font-medium sm:font-normal">Login</span>
                 </app-solidbutton>
             </a>
-            <a routerLink="/register">
-                <app-softbutton>
-                    <span class="text-black text-lg font-normal">Register</span>
+            }
+            @else if (currentRoute === '/') {
+            <a routerLink="/register" class="hidden sm:flex justify-center items-center h-7 w-24 sm:h-9 sm:w-32">
+                <app-softbutton class="w-full h-full">
+                    <span class="text-black text-sm sm:text-lg font-normal">Register</span>
                 </app-softbutton>
             </a>
+            <a routerLink="/login" class="h-7 w-24 sm:h-9 sm:w-32">
+                <app-solidbutton>
+                    <span class="text-white text-sm sm:text-lg font-medium sm:font-normal">Login</span>
+                </app-solidbutton>
+            </a>
+            } @else {
+            <a routerLink="/register" class="h-7 w-24 sm:h-9 sm:w-32">
+                <app-softbutton>
+                    <span class="text-black text-sm sm:text-lg font-normal">Register</span>
+                </app-softbutton>
+            </a>
+            }
         </div>
+
         <div class="lg:hidden">
             <app-menutoggle></app-menutoggle>
         </div>

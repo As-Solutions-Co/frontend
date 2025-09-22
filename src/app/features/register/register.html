@@ -1,14 +1,14 @@
 <section>
     <app-header></app-header>
-    <main class="relative h-screen flex flex-col justify-center items-center">
+    <main class="relative top-20 h-screen flex flex-col justify-center items-center">
         <div class="relative w-full h-full">
             <img src="assets/images/register.png" class="w-full h-screen object-cover opacity-80">
             <div class="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-400 opacity-45"></div>
         </div>
-        <div class="absolute top-7 lg:top-12 text-center">
+        <div class="absolute top-5 sm:top-7 lg:top-12 text-center">
             <h1 class="text-5xl sm:text-6xl font-extrabold text-white">Academy</h1>
         </div>
-        <div class="absolute top-24 lg:top-32 h-auto w-[330px] sm:w-auto lg:w-[52%]">
+        <div class="absolute top-16 sm:top-24 lg:top-32 h-auto w-[330px] sm:w-auto lg:w-[52%]">
             <app-card class="h-full w-full p-10 drop-shadow-xl drop-stone-50">
                 <div class="flex flex-col justify-center items-center gap-2">
                     <h1
@@ -38,12 +38,12 @@
                         </div>
                     </div>
                     <div class="my-6 h-8 w-28 sm:h-10 sm:w-36">
-                        <app-solidbutton class="text-white text-xl sm:text-[22px]"
+                        <app-solidbutton class="text-white text-[16px] sm:text-[22px]"
                             (click)="onRegister()">Register</app-solidbutton>
                     </div>
                 </div>
             </app-card>
         </div>
     </main>
-    <app-footer></app-footer>
+    <app-footer class="relative top-20 "></app-footer>
 </section>
