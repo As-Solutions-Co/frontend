@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Itemdash } from "../itemdash/itemdash";
+import { SidebarService } from '@core/services/sidebarService';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,5 +10,4 @@ import { Itemdash } from "../itemdash/itemdash";
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
-
 }
