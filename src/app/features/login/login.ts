@@ -6,11 +6,12 @@ import { Header } from '@shared/components/header/header';
 import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Alert } from "@shared/components/alert/alert";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [Header, Footer, Card, FormsModule, Solidbutton],
+  imports: [Header, Footer, Card, FormsModule, Solidbutton, Alert],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
