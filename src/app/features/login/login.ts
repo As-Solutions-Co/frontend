@@ -7,6 +7,7 @@ import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Alert } from "@shared/components/alert/alert";
+import { AlertService } from '@core/services/alertService';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,11 @@ export default class Login {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: Auth, private router: Router) { }
+  constructor(
+    private authService: Auth,
+    private router: Router,
+    private alertService: AlertService
+  ) { }
 
   onLogin() {
     this.authService.login(
@@ -28,12 +33,16 @@ export default class Login {
     ).subscribe({
       next: (response) => {
         console.log('Login successfully: ', response);
-        alert('Login successfully')
-        this.router.navigate(['/dashboard']);
+        this.alertService.show('success', 'Login successful!')
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 1000);
+
+
       },
       error: (response) => {
         console.log('Error al iniciar sesion: ', response);
-        alert('Login failed')
+        this.alertService.show('error', 'Login failed!');
       }
     })
   }

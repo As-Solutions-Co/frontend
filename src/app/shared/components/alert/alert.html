@@ -1,12 +1,13 @@
+@if (message) {
 <div
-    class="fixed flex justify-center items-center left-1/2 -translate-x-1/2 top-[85px] w-[70%] h-[7%] sm:w-[340px] sm:[60px] rounded-lg z-50">
+    class="fixed flex justify-center items-center left-1/2 -translate-x-1/2 top-[85px] w-[70%] h-[8%] sm:w-[340px] sm:h-[65px] rounded-lg z-50">
     <div class="flex justify-center items-center w-full h-full p-[5px] rounded-lg" [ngClass]="{
-            'bg-gradient-to-r from-cyan-500 to-emerald-400': type === 'success',
-            'bg-red-400': type === 'error',
-            'bg-yellow-500': type === 'warning',
-            'bg-blue-400': !type
-            
-        }">
+                'bg-gradient-to-r from-cyan-500 to-emerald-400': type === 'success',
+                'bg-red-400': type === 'error',
+                'bg-yellow-500': type === 'warning',
+                'bg-blue-400': !type
+                
+            }">
         <div class="flex flex-row rounded-lg bg-transparent w-full h-full justify-start items-center gap-3 px-5">
             <svg class="w-8 h-8 text-white">
                 <use [attr.href]="'assets/icons/' + icons() + '.svg'"></use>
@@ -15,3 +16,4 @@
         </div>
     </div>
 </div>
+}
