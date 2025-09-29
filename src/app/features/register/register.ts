@@ -1,18 +1,18 @@
 import { Alert } from '@shared/components/alert/alert';
 import { Solidbutton } from './../../shared/components/buttons/solidbutton/solidbutton';
-import { Card } from './../../shared/components/card/card';
 import { Footer } from './../../shared/components/footer/footer';
 import { Header } from '@shared/components/header/header';
 import { Component } from '@angular/core';
 import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
 import { AlertService } from '@core/services/alertService';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Box } from "@shared/components/box/box";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [Header, Footer, Card, FormsModule, Solidbutton, Alert],
+  imports: [Header, Footer, FormsModule, Alert, Box, Solidbutton, RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
@@ -36,7 +36,7 @@ export default class Register {
     ).subscribe({
       next: (response: any) => {
         console.log('Usuario registrado: ', response);
-        this.alertService.show('success', 'Successfully registered academy');
+        this.alertService.show('success', 'Successfully registered academy', null);
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 1000)
@@ -44,7 +44,7 @@ export default class Register {
       },
       error: (err: any) => {
         console.log('Error al registrar: ', err);
-        this.alertService.show('error', 'Failed register')
+        this.alertService.show('error', 'Failed register', String(err.error.detail))
       }
     });
   }

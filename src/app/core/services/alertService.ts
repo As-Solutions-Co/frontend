@@ -8,11 +8,11 @@ export type AlertType = 'success' | 'error' | 'warning' | 'info';
 })
 export class AlertService {
 
-  private alertSubject = new Subject<{ type: AlertType, message: string }>();
+  private alertSubject = new Subject<{ type: AlertType, message: string, detail: string | null }>();
 
   alert$ = this.alertSubject.asObservable();
 
-  show(type: AlertType, message: string) {
-    this.alertSubject.next({ type, message })
+  show(type: AlertType, message: string, detail: string | null) {
+    this.alertSubject.next({ type, message, detail })
   }
 }

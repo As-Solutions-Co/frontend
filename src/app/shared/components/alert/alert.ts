@@ -12,6 +12,7 @@ import { AlertService, AlertType } from '@core/services/alertService';
 export class Alert {
   type: AlertType = 'info';
   message: string = '';
+  detail: string | null = null;
 
   constructor(private alertService: AlertService) { }
 
@@ -19,13 +20,13 @@ export class Alert {
     this.alertService.alert$.subscribe((aler) => {
       this.type = aler.type;
       this.message = aler.message;
+      this.detail = aler.detail;
 
       setTimeout(() => {
         this.message = '';
       }, 5000);
     })
   }
-
 
   icons(): string {
     switch (this.type) {

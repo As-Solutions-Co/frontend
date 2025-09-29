@@ -5,21 +5,35 @@
         <div class="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-400 opacity-35"></div>
         <app-alert></app-alert>
         <app-card class="w-[75%] sm:w-[60%] md:w-[40%] lg:w-[30%]">
-            <div class="flex flex-col justify-center items-center gap-5">
+            <div class="flex flex-col justify-center items-center gap-2">
                 <div class="justify-center items-center gap-5">
                     <h1
                         class="text-4xl text-center sm:text-4xl font-bold bg-linear-100 from-cyan-500 to-emerald-400 bg-clip-text text-transparent mt-4 mb-3 sm:m-3">
                         Login</h1>
                     <div class="flex flex-col">
-                        <label for="user">Username</label>
-                        <input id="user" type="text" [(ngModel)]="username" [placeholder]="'Enter your username'">
-                        <label for="pass">Password</label>
-                        <input id="pass" type="password" [(ngModel)]="password" [placeholder]="'Enter your password'">
+                        <label for="user" class="ml-0 m-0">Username</label>
+                        <input id="user" type="text" [(ngModel)]="username" [placeholder]="'Enter your username'"
+                            class="ml-0">
+                        <label for="pass" class="ml-0 m-0">Password</label>
+                        <input id="pass" type="password" [(ngModel)]="password" [placeholder]="'Enter your password'"
+                            class="ml-0">
+                        <a href="">
+                            <p class="text-blue-400 hover:text-blue-500 text-[14px] my-2 ml-1">Forgot your password?</p>
+                        </a>
                     </div>
                 </div>
-                <div class="w-[45%] h-8 mb-5">
-                    <app-solidbutton (click)="onLogin()"
-                        class="text-white text-[16px] sm:text-lg">Login</app-solidbutton>
+                <div class="flex flex-col justify-center items-center">
+                    <div class="w-full h-8">
+                        <app-solidbutton (click)="onLogin()"
+                            class="text-white text-[16px] sm:text-lg">Login</app-solidbutton>
+                    </div>
+                    <p class="text-stone-800 text-[14px] my-2 ml-1">Need an account?
+                        <span>
+                            <a routerLink="/register"
+                                class=" text-blue-400 hover:text-blue-500 text-[14px] my-2 ml-1">Sign
+                                up</a>
+                        </span>
+                    </p>
                 </div>
             </div>
         </app-card>

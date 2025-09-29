@@ -1,47 +1,68 @@
 <section>
     <app-header></app-header>
-    <main class="relative top-20 h-screen flex flex-col justify-center items-center">
-        <div class="relative w-full h-full">
-            <img src="assets/images/register.png" class="w-full h-screen object-cover opacity-80">
-            <div class="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-400 opacity-45"></div>
-        </div>
+    <main
+        class="relative h-[1000px] md:h-screen w-full flex flex-col justify-center items-center md:flex-row md:justify-between md:items-center caret-transparent">
         <app-alert></app-alert>
-        <div class="absolute top-16 lg:top-5 h-auto w-[330px] sm:w-auto lg:w-[52%]">
-            <app-card class="h-full w-full p-10 drop-shadow-xl drop-stone-50">
-                <div class="flex flex-col justify-center items-center gap-2">
-                    <h1
-                        class="text-3xl sm:text-4xl font-bold bg-linear-100 from-cyan-500 to-emerald-400 bg-clip-text text-transparent mt-3 sm:m-3">
-                        Register</h1>
-                    <div class="flex flex-col sm:flex-row justify-center items-start gap-6 lg:gap-10 mt-5">
-                        <div class="flex flex-col">
-                            <h2 class="text-left">User data</h2>
-                            <label for="user">Username</label>
-                            <input id="user" type="text" [placeholder]="'Your username'" [(ngModel)]="username"
-                                required>
-                            <label for="pass">Password</label>
-                            <input id="pass" type="password" [placeholder]="'Your password'" [(ngModel)]="password"
-                                required>
-                            <input id="cpass" type="password" [placeholder]="'Confirm your password'"
-                                [(ngModel)]="cPassword" required>
-                        </div>
-                        <hr id="space">
-                        <div class="flex flex-col">
-                            <h2 class="text-left">Institucional data</h2>
-                            <label for="code">Dane code</label>
-                            <input id="code" type="number" [placeholder]="'Your Dane code'" [(ngModel)]="dane_code"
-                                required>
-                            <label for="color">Main color</label>
-                            <input id="color" type="color" [placeholder]="'Your username'" [(ngModel)]="main_color"
-                                required>
-                        </div>
-                    </div>
-                    <div class="my-6 h-8 w-28 sm:h-10 sm:w-36">
-                        <app-solidbutton class="text-white text-[16px] sm:text-[22px]"
-                            (click)="onRegister()">Register</app-solidbutton>
-                    </div>
-                </div>
-            </app-card>
+        <div class="bg-stone-50 h-full w-full flex flex-col justify-center items-center text-center gap-5 sm:gap-10">
+            <div class="flex flex-row justify-center items-center gap-3 mt-20 sm:mt-0">
+                <app-box class="sm:h-14 sm:w-14">
+                    <svg class="h-8 w-9 sm:h-12 sm:w-12">
+                        <use href="assets/icons/academy.svg"></use>
+                    </svg>
+                </app-box>
+                <h1 class="font-bold text-3xl sm:text-4xl text-emerald-400">
+                    Join Academy</h1>
+            </div>
+            <div class="flex flex-col justify-center items-center sm:gap-1">
+                <h2 class="text-2xl sm:text-4xl font-medium text-stone-600 w-[80%]">The platform that transforms
+                    education
+                </h2>
+                <p class="text-sm sm:text-lg w-[80%] font-extralight text-stone-950">Manage your educational institution
+                    intelligently.
+
+                    Everything you
+                    need to
+                    deliver an
+                    exceptional
+                    learning experience.</p>
+            </div>
         </div>
+        <div class="flex flex-col bg-gray-200 justify-center items-start h-full w-full gap-3 p-14 lg:p-24 md:w-[65%]">
+            <form class="flex flex-col gap-10 w-full">
+                <div class="flex flex-col">
+                    <h1 class="text-stone-700 mb-5">User data</h1>
+                    <label for="user">Username</label>
+                    <input type="text" name="user" [placeholder]="'Your username'" class="bg-stone-50 w-full"
+                        [(ngModel)]="username">
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" [placeholder]="'Your password'" class="bg-stone-50 w-full"
+                        [(ngModel)]="password">
+                    <label for="cPass">Confirm your password</label>
+                    <input type="password" name="cPass" [placeholder]="'Confirm your password'"
+                        class="bg-stone-50 w-full" [(ngModel)]="cPassword">
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="text-stone-700 mb-5">Institutional data</h1>
+                    <label for="code">Dane code</label>
+                    <input type="number" name="code" [placeholder]="'Your username'" class="bg-stone-50 w-full"
+                        [(ngModel)]="dane_code">
+                    <label for="color">Institutional color</label>
+                    <input type="color" name="color" class="bg-stone-50 w-full px-3 py-1" [(ngModel)]="main_color">
+                </div>
+                <div class="flex flex-col h-[70px] w-full justify-center items-center gap-2">
+                    <app-solidbutton class="h-full w-[80%] text-white font-medium text-[16px] sm:text-lg md:text-xl"
+                        (click)="onRegister()">Register
+                        Academy
+                    </app-solidbutton>
+                    <p class="text-black font-extralight text-sm sm:text-[14px]">Have an account?
+                        <span>
+                            <a routerLink="/login" class="text-blue-400 hover:text-blue-500">Sing in</a>
+                        </span>
+                    </p>
+                </div>
+            </form>
+        </div>
+
     </main>
-    <app-footer class="relative top-20 "></app-footer>
+    <app-footer></app-footer>
 </section>

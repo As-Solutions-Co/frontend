@@ -5,14 +5,14 @@ import { Component } from '@angular/core';
 import { Header } from '@shared/components/header/header';
 import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Alert } from "@shared/components/alert/alert";
 import { AlertService } from '@core/services/alertService';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [Header, Footer, Card, FormsModule, Solidbutton, Alert],
+  imports: [Header, Footer, Card, FormsModule, Solidbutton, Alert, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -33,7 +33,7 @@ export default class Login {
     ).subscribe({
       next: (response) => {
         console.log('Login successfully: ', response);
-        this.alertService.show('success', 'Login successful!')
+        this.alertService.show('success', 'Login successful!', null)
         setTimeout(() => {
           this.router.navigate(['/dashboard']);
         }, 1000);
@@ -42,7 +42,7 @@ export default class Login {
       },
       error: (response) => {
         console.log('Error al iniciar sesion: ', response);
-        this.alertService.show('error', 'Login failed!');
+        this.alertService.show('error', 'Login failed!', String(response.error.detail));
       }
     })
   }
