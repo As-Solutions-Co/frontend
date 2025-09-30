@@ -22,7 +22,7 @@
   }
 
   input {
-    @apply border-[0.5px] border-stone-400 text-black w-56 h-9 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-[12px] hover:scale-105 transition-all duration-300  placeholder:text-stone-500 ml-1 pl-3 caret-stone-700;
+    @apply border-[0.5px] border-stone-400 text-black w-56 h-9 sm:w-60 sm:h-11 text-[13px] sm:text-[16px] text-wrap rounded-[12px] transition-all duration-300  placeholder:text-stone-500 ml-1 pl-3 caret-stone-700;
   }
 
   input#color {
