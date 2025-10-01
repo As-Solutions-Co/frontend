@@ -1,7 +1,7 @@
 <section>
     <app-header></app-header>
     <main
-        class="relative h-auto md:h-screen lg:h-[800px] w-full flex flex-col justify-center items-center sm:flex-row md:justify-around md:items-center caret-transparent bg-stone-50">
+        class="relative h-auto md:h-screen lg:h-[900px] w-full flex flex-col justify-center items-center sm:flex-row md:justify-around md:items-center caret-transparent bg-stone-50">
         <app-alert></app-alert>
         <div
             class="bg-stone-50 h-auto w-full flex flex-col justify-center items-center text-center gap-5 sm:gap-10 m-10">
@@ -32,19 +32,28 @@
             class="flex flex-col bg-gray-100 justify-center items-center h-full w-full gap-3 px-14 lg:px-24 sm:w-[75%] md:w-[70%]">
             <form class="flex flex-col gap-10 w-full my-10 sm:mt-24">
                 <div class="flex flex-col">
-                    <h1 class="text-emerald-500 mb-5">User data</h1>
+                    <h1 class="text-emerald-500 mb-5 font-medium">User data</h1>
                     <label for="user">Username</label>
                     <div class="flex flex-row justify-center items-center gap-1">
-                        <svg class="h-6 w-6 text-emerald-500">
+                        <svg class="h-6 w-6 text-emerald-600">
                             <use href="assets/icons/user.svg"></use>
                         </svg>
                         <input type="text" name="user" [placeholder]="'Your username'" class="bg-stone-50 w-full"
                             [(ngModel)]="username">
                     </div>
 
+                    <label for="email">Email</label>
+                    <div class="flex flex-row justify-center items-center gap-1">
+                        <svg class="h-6 w-6 text-emerald-600">
+                            <use href="assets/icons/at.svg"></use>
+                        </svg>
+                        <input type="email" name="email" [placeholder]="'myemail@example.com'"
+                            class="bg-stone-50 w-full" [(ngModel)]="email">
+                    </div>
+
                     <label for="pass">Password</label>
                     <div class="flex flex-row justify-center items-center gap-1">
-                        <svg class="h-6 w-6 text-emerald-500">
+                        <svg class="h-6 w-6 text-emerald-600">
                             <use href="assets/icons/pass.svg"></use>
                         </svg>
                         <input type="password" name="pass" [placeholder]="'Your password'" class="bg-stone-50 w-full"
@@ -53,7 +62,7 @@
 
                     <label for="cPass">Confirm your password</label>
                     <div class="flex flex-row justify-center items-center gap-1">
-                        <svg class="h-6 w-6 text-emerald-500">
+                        <svg class="h-6 w-6 text-emerald-600">
                             <use href="assets/icons/pass.svg"></use>
                         </svg>
                         <input type="password" name="cPass" [placeholder]="'Confirm your password'"
@@ -62,10 +71,10 @@
 
                 </div>
                 <div class="flex flex-col">
-                    <h1 class="text-emerald-500 mb-5">Institutional data</h1>
+                    <h1 class="text-emerald-500 mb-5 font-medium">Institutional data</h1>
                     <label for="code">Dane code</label>
                     <div class="flex flex-row justify-center items-center gap-1">
-                        <svg class="h-6 w-6 text-emerald-500">
+                        <svg class="h-6 w-6 text-emerald-600">
                             <use href="assets/icons/school.svg"></use>
                         </svg>
                         <input type="number" name="code" [placeholder]="'Your username'" class="bg-stone-50 w-full"
@@ -73,7 +82,7 @@
                     </div>
                     <label for="color">Institutional color</label>
                     <div class="flex flex-row justify-center items-center gap-1">
-                        <svg class="h-6 w-6 text-emerald-500">
+                        <svg class="h-6 w-6 text-emerald-600">
                             <use href="assets/icons/color.svg"></use>
                         </svg>
                         <input type="color" name="color" class="bg-stone-50 w-full px-3 py-1" [(ngModel)]="main_color">
@@ -92,7 +101,6 @@
                 </div>
             </form>
         </div>
-
     </main>
     <app-footer></app-footer>
 </section>

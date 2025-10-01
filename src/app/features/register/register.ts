@@ -19,10 +19,12 @@ import { Box } from "@shared/components/box/box";
 
 export default class Register {
   username: string = '';
+  email: string = '';
   password: string = '';
   cPassword: string = '';
   main_color: string = '';
   dane_code: string = '';
+
 
   constructor(private authService: Auth, private alertService: AlertService, private router: Router) { }
 
