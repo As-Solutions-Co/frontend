@@ -3,11 +3,12 @@ import { Solidbutton } from './../../shared/components/buttons/solidbutton/solid
 import { Footer } from './../../shared/components/footer/footer';
 import { Header } from '@shared/components/header/header';
 import { Component } from '@angular/core';
-import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
 import { AlertService } from '@core/services/alertService';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Box } from "@shared/components/box/box";
+import { AuthAWS } from '@core/services/authaws';
+import { autoSignIn } from 'aws-amplify/auth';
 
 @Component({
   selector: 'app-register',
@@ -26,28 +27,20 @@ export default class Register {
   dane_code: string = '';
 
 
-  constructor(private authService: Auth, private alertService: AlertService, private router: Router) { }
+  constructor(private authService: AuthAWS, private alertService: AlertService, private router: Router) { }
 
-  onRegister() {
-    this.authService.register(
-      this.username,
-      this.password,
-      this.cPassword,
-      this.main_color,
-      this.dane_code
-    ).subscribe({
-      next: (response: any) => {
-        console.log('Usuario registrado: ', response);
-        this.alertService.show('success', 'Successfully registered academy', null);
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 1000)
+  async register() {
+    try {
+      await this.authService.handleSignUp(this.username, this.email, this.password);
+      this.alertService.show('success', 'Successfully registered academy', 'Revisa tu correo');
 
-      },
-      error: (err: any) => {
-        console.log('Error al registrar: ', err);
-        this.alertService.show('error', 'Failed register', String(err.error.detail))
-      }
-    });
+      setTimeout(() => {
+        this.router.navigate(['/confirmcode'], { queryParams: { user: this.username } })
+      }, 200)
+
+    } catch (err: any) {
+      this.alertService.show('error', 'Failed register', err.message);
+    }
   }
+
 }

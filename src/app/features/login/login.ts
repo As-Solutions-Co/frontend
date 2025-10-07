@@ -3,11 +3,11 @@ import { Card } from './../../shared/components/card/card';
 import { Footer } from '@shared/components/footer/footer';
 import { Component } from '@angular/core';
 import { Header } from '@shared/components/header/header';
-import { Auth } from '@core/services/auth';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Alert } from "@shared/components/alert/alert";
 import { AlertService } from '@core/services/alertService';
+import { AuthAWS } from '@core/services/authaws';
 
 @Component({
   selector: 'app-login',
@@ -21,30 +21,20 @@ export default class Login {
   password: string = '';
 
   constructor(
-    private authService: Auth,
+    private authService: AuthAWS,
     private router: Router,
     private alertService: AlertService
   ) { }
 
-  onLogin() {
-    this.authService.login(
-      this.username,
-      this.password
-    ).subscribe({
-      next: (response) => {
-        console.log('Login successfully: ', response);
-        this.alertService.show('success', 'Login successful!', null)
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 1000);
-
-
-      },
-      error: (response) => {
-        console.log('Error al iniciar sesion: ', response);
-        this.alertService.show('error', 'Login failed!', String(response.error.detail));
-      }
-    })
+  async onLogin() {
+    try {
+      await this.authService.handleLogin(this.username, this.password);
+      this.alertService.show('success', 'Login successful!', null);
+      setTimeout(() => {
+        this.router.navigate(['/dashboard']);
+      }, 1000)
+    } catch (err: any) {
+      this.alertService.show('error', 'Login failed!', err)
+    }
   }
-
 }

@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="flex py-36 h-auto w-full justify-center items-center bg-stone-100">
+
+    <section class=" w-full h-auto flex flex-col justify-center items-center gap-8 caret-transparent">
+
+        <div class="flex flex-col justify-center items-center gap-2">
+            <div class="w-13 h-13 sm:w-15 sm:h-15">
+                <app-box>
+                    <svg class="w-9 h-9 sm:w-10 sm:h-10 text-white">
+                        <use href="assets/icons/mailCheck.svg"></use>
+                    </svg>
+                </app-box>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-2">
+                <h1 class="text-3xl md:text-4xl text-nowrap text-center font-medium text-stone-900">Check your email
+                </h1>
+                <div class="w-[75%]">
+                    <p class="text-center font-light text-sm sm:text-[16px] text-stone-500">Check your email for a
+                        6-digit
+                        verification
+                        code.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-row justify-center items-center gap-1 sm:gap-3">
+            @for (digit of otpCode; track $index) {
+            <input #otpInput type="text" inputmode="numeric" maxlength="1" (input)="onInput($event, $index)"
+                (keydown)="onkeyDown($event, $index)" (paste)="onPaste($event)" id="code">
+            }
+        </div>
+
+        <div class="flex flex-col justify-center items-center gap-2">
+            <div class="h-9 w-64 sm:h-10 sm:w-64 text-[17px] sm:text-xl text-white font-medium">
+                <app-solidbutton [disabled]="disabled" (click)="confirmCode()">Verify code</app-solidbutton>
+            </div>
+            <p class="text-stone-600 font-extralight text-[15px]">Didn’t get the code?</p>
+            <div class="text-center mt-2">
+                <button
+                    class="text-cyan-500 text-[15px] font-medium hover:underline hover:cursor-pointer hover:text-cyan-600">
+                    Reenviar código
+                </button>
+                <p class="text-gray-500 text-sm">
+                    Reenviar en s
+                </p>
+            </div>
+        </div>
+
+        <a routerLink="/register">
+            <div class="flex items-center justify-center gap-1 font-normal text-sm text-stone-600 hover:text-stone-800">
+                <svg class="h-4 w-4">
+                    <use href="assets/icons/arrow-left.svg"></use>
+                </svg>
+                <p>return</p>
+            </div>
+        </a>
+
+        <p class="text-sm font-extralight text-stone-600">El código expirá en 10 minutos</p>
+    </section>
+</div>

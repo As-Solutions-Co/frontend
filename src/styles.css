@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0px;
+}
+
 @layer base {
   hr {
     @apply bg-gradient-to-r from-transparent to-transparent border-0;
@@ -27,6 +33,10 @@
 
   input#color {
     @apply px-3 py-1;
+  }
+
+  input#code {
+    @apply w-9 h-14 sm:w-10 sm:h-15 p-0 rounded-full caret-stone-600 text-center text-xl sm:text-2xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all duration-200 font-bold text-stone-700;
   }
 
   label {
