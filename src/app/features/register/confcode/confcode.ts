@@ -51,7 +51,7 @@ export default class Confcode {
   }
 
   onPaste(event: ClipboardEvent) {
-    handlePaste(event, this.inputs, (filled: boolean) => {
+    handlePaste(event, this.inputs, this.otpCode, (filled: boolean) => {
       this.disabled = !filled;
     })
   }

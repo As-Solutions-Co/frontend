@@ -48,7 +48,7 @@ export function handleKeyDown(
 }
 
 
-export function handlePaste(event: ClipboardEvent, inputs: QueryList<ElementRef<HTMLInputElement>>, onComplete: (filled: boolean) => void) {
+export function handlePaste(event: ClipboardEvent, inputs: QueryList<ElementRef<HTMLInputElement>>, otpCode: String[], onComplete: (filled: boolean) => void) {
     // Evitamos que el texto copiado no se pegue en un solo input
     event.preventDefault();
 
@@ -62,7 +62,9 @@ export function handlePaste(event: ClipboardEvent, inputs: QueryList<ElementRef<
 
     inputs.forEach((inputRef, index) => {
         const input = inputRef.nativeElement;
-        input.value = digits[index] || '';
+        const value = digits[index] || '';
+        input.value = value;
+        otpCode[index] = value;
     });
 
     const lastIndex = digits.length - 1;
@@ -71,4 +73,5 @@ export function handlePaste(event: ClipboardEvent, inputs: QueryList<ElementRef<
 
     const allFilled = inputs.toArray().every(input => input.nativeElement.value.trim() !== '');
     onComplete(allFilled)
+
 }

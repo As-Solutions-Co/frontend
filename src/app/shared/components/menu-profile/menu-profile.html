@@ -1,7 +1,7 @@
 <div
-    class="flex flex-col justify-around items-center bg-stone-100 rounded-b-2xl rounded-tl-2xl w-[10%] h-[10%] fixed top-24 right-16 z-10 p-3">
+    class="flex flex-col justify-around items-center bg-white rounded-b-2xl rounded-tl-2xl fixed top-24 sm:top-[100px] md:top-[100px] lg:top-[110px] right-10 sm:right-16 z-10 p-3">
     <div class="flex flex-col w-full">
-        <app-outlinebutton (click)="logout()">
+        <app-outlinebutton (click)="onlogOut()" class="text-lg px-2">
             Log out
         </app-outlinebutton>
     </div>

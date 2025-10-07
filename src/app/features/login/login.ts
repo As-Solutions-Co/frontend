@@ -28,13 +28,14 @@ export default class Login {
 
   async onLogin() {
     try {
-      await this.authService.handleLogin(this.username, this.password);
+      const result = await this.authService.handleLogin(this.username, this.password);
+      console.log(result)
       this.alertService.show('success', 'Login successful!', null);
       setTimeout(() => {
         this.router.navigate(['/dashboard']);
-      }, 1000)
+      }, 500)
     } catch (err: any) {
-      this.alertService.show('error', 'Login failed!', err)
+      this.alertService.show('error', 'Login failed!', err.message)
     }
   }
 }

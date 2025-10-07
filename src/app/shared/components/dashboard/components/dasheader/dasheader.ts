@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { AlertService } from '@core/services/alertService';
+import { AuthAWS } from '@core/services/authaws';
 import { SidebarService } from '@core/services/sidebarService';
 import { MenuProfile } from '@shared/components/menu-profile/menu-profile';
 import { Notifications } from '@shared/components/notifications/notifications';
@@ -27,6 +29,5 @@ export class Dasheader {
   toggleSidebar() {
     this.sidebarService.toggle();
   }
-
 
 }

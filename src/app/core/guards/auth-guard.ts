@@ -1,17 +1,18 @@
-import { inject } from '@angular/core';
+import { inject, NgZone } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { Auth } from '@core/services/auth';
-import { map, catchError, of } from 'rxjs';
+import { AuthAWS } from '@core/services/authaws';
+import { catchError } from 'rxjs';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const authService = inject(Auth);
+export const authGuard: CanActivateFn = async (route, state) => {
+  const authService = inject(AuthAWS);
   const router = inject(Router);
+  const zone = inject(NgZone);
 
-  return authService.isLoggedIn().pipe(
-    map(response => true),
-    catchError(err => {
-      router.navigate(['/login']);
-      return of(false);
-    })
-  );
+  const user = await authService.getCurrentUser();
+  if (user) {
+    return true;
+  } else {
+    zone.run(() => router.navigate(['/login']));
+    return false;
+  }
 };
